@@ -1,0 +1,300 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-image: url("./background.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Main App Container */
+.App {
+  margin-top: 11px;
+  margin-bottom: 1px;
+}
+
+/* Full Container */
+.fullContainer {
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: auto;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  background-color: #e3f2fd;
+  height: 95vh;
+  width: 60vw;
+  box-sizing: border-box;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styles */
+.fullContainer h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #6f423a;
+  margin: 10px 0;
+  padding: 5px;
+  background-color: #ffe0b2;
+  border-radius: 15px;
+  width: 98.8%;
+}
+
+.fullContainer h3, .fullContainer h4 {
+  color: #4e342e;
+  margin: 12px 0;
+}
+
+.fullContainer strong {
+  color: #212121;
+}
+
+.fullContainer em {
+  color: #757575;
+}
+
+/* Form Container */
+.formContainer {
+  border: 1px solid #333;
+  background-color: #e1f5fe;
+  margin: 1rem auto;
+  width: 40vw;
+  height: 73vh;
+  padding: 1.25rem;
+  box-sizing: border-box;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Container */
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Toggle Button */
+.authToggleButton {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background-color: #5e92f3;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.authToggleButton:hover {
+  background-color: #2196f3;
+  transform: scale(1.05);
+}
+
+.authToggleButton.active {
+  background-color: #0d47a1;
+  font-weight: 700;
+}
+
+/* Login Form */
+.loginForm, .registrationForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px; 
+  height: auto; 
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.loginForm h3 {
+  margin-right: 20px;
+}
+.loginForm h4 {
+  margin-top: 30px;
+  color: #ba1111;
+  font-family: cursive;
+}
+
+.loginInputContainer {
+  position: relative;
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 300px;
+  margin-right: 0 /*50px;*/
+}
+
+.loginInputIcon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #d2d1d1;
+  pointer-events: none;
+}
+
+.loginInputContainer input[type="text"], 
+.loginInputContainer input[type="password"] {
+  width: calc(100% - 10px);
+  padding: 10px;
+  padding-left: 40px; /* Ensure padding for text does not overlap with icon */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.loginInputContainer input[type="text"]:focus, 
+.loginInputContainer input[type="password"]:focus {
+  border-color: #007BFF;
+  box-sizing: border-box;
+}
+
+/* Buttons */
+.loginButton, .registerButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #1170de;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-right: 30px;
+}
+
+.loginButton:hover, .registerButton:hover {
+  background-color: #0056b3;
+}
+
+/* Registration Form */
+.registrationForm h3 {
+  margin-right: 35px;
+}
+
+.registrationForm h4 {
+  margin-right: 30px;
+}
+
+.regInputContainer {
+  position: relative;
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 300px;
+  margin-right: 0;
+}
+
+.regInputIcon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #d2d1d1;
+}
+
+.regInputContainer input[type="text"], 
+.regInputContainer input[type="password"], 
+.regInputContainer input[type="email"], 
+.regInputContainer input[type="file"],
+.regInputContainer select {
+  width: calc(100% - 10px);
+  padding: 10px;
+  padding-left: 40px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.regInputContainer input[type="text"]:focus, 
+.regInputContainer input[type="password"]:focus, 
+.regInputContainer input[type="email"]:focus,
+.regInputContainer input[type="file"]:focus,
+.regInputContainer select:focus {
+  border-color: #007BFF;
+  box-sizing: border-box;
+}
+
+.passwordToggleBtn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+}
+
+.passwordToggleBtn:hover {
+  color: #000;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 1200px) {
+  .fullContainer {
+      width: 80vw;
+      height: auto;
+  }
+
+  .formContainer {
+      width: 60vw;
+      height: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .fullContainer {
+      width: 90vw;
+  }
+  .fullContainer h2 {
+    font-size: 1.75rem;
+  }
+
+  .formContainer {
+      width: 80vw;
+  }
+
+  .loginForm, .registrationForm {
+      width: 100%;
+  }
+
+  .loginInputContainer, .regInputContainer {
+      width: 100%;
+      margin-right: 0;
+  }
+
+  .authToggleButton {
+      font-size: 0.9rem;
+  }
+  .loginButton, .registerButton {
+    padding: 8px 16px; 
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .fullContainer {
+      width: 90vw;
+  }
+  .fullContainer h2 {
+    font-size: 1.5rem;
+  }
+
+  .formContainer {
+      width: 90vw;
+  }
+
+  .authToggleButton {
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+  }
+
+  .loginButton, .registerButton {
+      font-size: 0.8rem;
+      padding: 6px 12px;
+      margin-right: 10px;
+  }
+}
+

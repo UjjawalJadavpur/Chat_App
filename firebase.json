@@ -1,0 +1,12 @@
+{
+  "hosting": {
+    "public": "build",   
+    "ignore": ["firebase.json", "firestore.indexes.json", "firestore.rules"]
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "database": {
+    "rules": "database.rules.json"
+  }
+}
