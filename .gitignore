@@ -1,0 +1,9 @@
+# Ignore node_modules folders
+client/node_modules/
+backend/node_modules/
+node_modules/
+
+# Ignore environment files
+.env
+client/.env
+backend/.env
