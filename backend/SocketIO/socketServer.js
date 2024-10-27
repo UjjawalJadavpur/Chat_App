@@ -3,6 +3,8 @@ import http from "http";
 import express from "express";
 import cors from 'cors';
 import { Socket } from "socket.io-client";
+import User from "../Models/userModel.js";
+
 
 
 const app = express();
@@ -33,31 +35,21 @@ io.on("connection", (socket) => {
 
   io.emit("getOnlineUsers", Object.keys(users));
 
-  // socket.on("deleteMessageForMe", ({ messageId, userId }) => {
-  //   // Emit deletion update to the specific user who initiated "delete for me"
-  //   if (users[userId]) {
-  //     io.to(users[userId]).emit("messageDeletedForMe", {
-  //       messageId,
-  //       userId,
-  //       type: 'forMe'
-  //     });
-  //   }
-  // });
 
-  // socket.on("deleteMessageForEveryone", ({ messageId, conversationId }) => {
-  //   // Emit deletion update to all users in the conversation
-  //   io.emit("messageDeletedForEveryone", {
-  //     messageId,
-  //     conversationId,
-  //     type: 'forEveryone'
-  //   });
-  // });
-
-
-  socket.on("disconnect", () => {
+  socket.on("disconnect", async() => {
     console.log("User Disconnected : ", socket.id);
     delete users[userId];
     io.emit("getOnlineUsers", Object.keys(users));
+
+    try {
+      if (userId) {
+          await User.findByIdAndUpdate(userId, {
+              lastSeen: new Date() 
+          });
+      }   
+    } catch (error) {
+      console.error("Error updating last seen:", error);
+    }
   });
 });
 

@@ -27,7 +27,11 @@ const userSchema = mongoose.Schema({
     profilePic: {
         type: String,  // Could store URL or a file path
         required: false 
-    }
+    },
+    lastSeen: {
+        type: Date,
+        default: null, // Default to null when online
+    },
 
 },{timestamps:true});
 

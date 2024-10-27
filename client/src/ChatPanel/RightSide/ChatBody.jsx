@@ -1,51 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ChatFeed from './ChatFeed.jsx';
 import useConversation from '../../Zustand/userConversation.jsx';
-import useSocketStore from '../../Zustand/useSocket.jsx';
+import HeaderChatBody from './HeaderChatBody.jsx';
 
 function ChatBody() {
 
     const { selectedConversation } = useConversation();
-    const { onlineUsers } = useSocketStore();
-
-    const storedData = JSON.parse(localStorage.getItem("Chat_App")) || {};
-    // const loggedInUserName = storedData.user.userName;
-    const loggedInUserName = storedData.user ? storedData.user.userName : null;
-    console.log("storeddata : - ", storedData.user);
-
-    // console.log("Chat Body selected Conversation :- ", selectedConversation);
     const isValidConversation = selectedConversation && selectedConversation.userName;
-
-    const isOnline = isValidConversation && onlineUsers.includes(selectedConversation._id);
 
     return (
         <div className='chatBody'>
-            <div className='headerchatBody'>
-                {isValidConversation ? (
-                    <p>
-                        {/* Receiver : */}
-                        <img
-                            src={selectedConversation.profilePic}  // Use the saved URL from MongoDB
-                            alt={`${selectedConversation.userName}'s profile`}
-                            className="headerProfilePic"
-                        />
-                        <strong>{selectedConversation.userName}</strong>
-                        <span className={`statusText ${isOnline ? 'online' : 'offline'}`}>
-                            {isOnline ? ' (Online)' : ' (Offline)'}
-                        </span>
-                    </p>
-                ) : (
-                    <p> 
-                        Welcome 
-                        <img
-                            src={storedData.user.profilePic}  // Use the saved URL from MongoDB
-                            alt={`${storedData.user.userName}'s profile`}
-                            className="headerLoggedInProfilePic"
-                        />
-                        <strong><i>{loggedInUserName}</i></strong>  
-                    </p>
-                )}
-            </div>
+            <HeaderChatBody/>
             {isValidConversation ? (
                 <ChatFeed />
             ) : (

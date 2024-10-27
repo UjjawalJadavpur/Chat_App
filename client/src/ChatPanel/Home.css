@@ -233,12 +233,6 @@ body {
     color: brown;
 }
 
-.headerchatBody span {
-    font-size: 0.5rem;
-    vertical-align: sub;
-    margin-left: 5px;
-}
-
 .headerProfilePic {
     width: 55px;
     height: 55px;
@@ -253,19 +247,25 @@ body {
     border-radius: 50%;
     margin-left: 0px;
 }
-
-.statusText {
-    font-size: 0.75rem; 
-    /* vertical-align: baseline; */
-    /* line-height: 1; */
-    transform: translateY(70%);
+.headerchatBody .userInfo {
+    display: flex;
+    flex-direction: column; 
+    margin-left: 5px;
+    align-items: flex-start;
 }
+
+.headerchatBody .statusText {
+    font-size: 0.6rem;
+    margin-top: 3px; 
+   /* white-space: nowrap;  Prevent text wrapping for better alignment */
+}
+
 .online {
     color: green;
     font-weight: bold;
 }
 .offline {
-    color: red;
+    color: rgb(206, 13, 138);
     font-weight: bold;
 }
 

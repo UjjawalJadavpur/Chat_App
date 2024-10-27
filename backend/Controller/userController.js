@@ -48,7 +48,6 @@ const login = async (req, res) => {
 
     try {
         const user = await User.findOne({ email });
-        // console.log("After login User :- ", user);
 
         if (!user) {
             console.log(`User not found with email: ${email}`);
@@ -112,8 +111,6 @@ const allUsers = async (req, res) => {
         if (filteredUsers.length === 0) {
             return res.status(404).json({ message: "No other users found" });
         }
-
-        // console.log("Users returned from DB: ", filteredUsers);
 
         res.status(200).json({ filteredUsers });
     } 

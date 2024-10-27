@@ -12,7 +12,7 @@ const secureRoute = async (req, res, next) => {
         }
         const decoded = jwt.verify(token, process.env.JWT_TOKEN);
         if(!decoded || !decoded.userId){
-            return res.status(401).json({error: "Invalid Token"})        }
+            return res.status(401).json({error: "Invalid Token"})       }
 
         const user = await User.findById(decoded.userId).select("-password");
         if(!user){
